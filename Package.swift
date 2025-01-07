@@ -6,12 +6,12 @@ import PackageDescription
 let package = Package(
     name: "GoodSwiftUI",
     platforms: [
-        .iOS(.v13)
+        .iOS(.v15)
     ],
     products: [
         .library(
             name: "GoodSwiftUI",
-            targets: ["GoodSwiftUI", "GRAsyncImage", "GRInputField"]
+            targets: ["GoodSwiftUI", "GRAsyncImage", "GRInputField", "GRToggle"]
         ),
         .library(
             name: "GRAsyncImage",
@@ -20,6 +20,10 @@ let package = Package(
         .library(
             name: "GRInputField",
             targets: ["GRInputField"]
+        ),
+        .library(
+            name: "GRToggle",
+            targets: ["GRToggle"]
         )
     ],
     dependencies: [
@@ -43,6 +47,13 @@ let package = Package(
             dependencies: [
                 .product(name: "GoodExtensions", package: "GoodExtensions-iOS"),
                 .product(name: "GoodStructs", package: "GoodExtensions-iOS")
+            ],
+            swiftSettings: [.swiftLanguageMode(.v6)]
+        ),
+        .target(
+            name: "GRToggle",
+            dependencies: [
+                .product(name: "GoodExtensions", package: "GoodExtensions-iOS"),
             ],
             swiftSettings: [.swiftLanguageMode(.v6)]
         ),
