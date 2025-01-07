@@ -33,6 +33,12 @@ struct SamplesListView: View {
                 } label: {
                     Text("Readable content width")
                 }
+                
+                NavigationLink {
+                    GRToggleSampleView()
+                } label: {
+                    Text("Toggles")
+                }
             }
             .navigationTitle("Samples")
         }
